@@ -1,0 +1,32 @@
+from turtle import Turtle, Screen
+
+RADIUS = 100
+FONTSIZE = int(RADIUS / 2)
+FONT = ("Arial", FONTSIZE, "bold")
+
+nida = Turtle(visible=False)
+nida.penup()
+
+screen = Screen()
+
+nida.sety(-RADIUS)
+nida.begin_poly()
+nida.circle(RADIUS, steps=8)
+nida.end_poly()
+screen.register_shape("octagon", nida.get_poly())
+nida.shape("octagon")
+
+nida.fillcolor("red")
+nida.home()
+nida.setheading(360 / 8 / 2)
+nida.stamp()
+
+nida.pencolor("white")
+nida.shapesize(0.9)
+nida.stamp()
+nida.shapesize(1.0)
+
+nida.sety(-FONTSIZE / 2)
+nida.write("STOP", align="center", font=FONT)
+
+screen.exitonclick()
